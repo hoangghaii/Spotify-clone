@@ -3,6 +3,7 @@ import { signOut, useSession } from 'next-auth/react';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 
+import DefaultDashboard from '@/components/DefaultDashboard';
 import Songs from '@/components/Songs';
 import { usePlayListContext } from '@/contexts';
 import { pickRandom } from '@/utils';
@@ -51,7 +52,7 @@ const Center = () => {
       <section
         className={`flex items-end space-x-7 bg-gradient-to-b ${fromColor} to-black h-80 p-8`}
       >
-        {selectedPlaylist && (
+        {selectedPlaylist ? (
           <>
             <Image
               src={selectedPlaylist.images[0].url}
@@ -67,6 +68,8 @@ const Center = () => {
               </h1>
             </div>
           </>
+        ) : (
+          <DefaultDashboard />
         )}
       </section>
 

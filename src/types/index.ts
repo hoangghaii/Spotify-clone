@@ -75,3 +75,10 @@ export type SongReducerAction =
       type: SongReducerActionType.SetVolume;
       payload: number;
     };
+
+export type Category = {
+  href: string;
+  icons: SpotifyApi.ImageObject[];
+  id: string;
+  name: string;
+};

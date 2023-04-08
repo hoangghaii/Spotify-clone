@@ -11,6 +11,7 @@ import { usePlayListContext } from '@/contexts';
 import { useSpotify } from '@/hooks';
 
 import IconButton from './IconButton';
+import SpotifyLogo from './SpotifyLogo';
 
 const Divider = () => {
   return <hr className="border-t-[0.1px] border-gray-900" />;
@@ -36,6 +37,13 @@ const Sidebar = () => {
   return (
     <div className="text-gray-500 px-5 pt-5 pb-36 text-xs lg:text-sm border-r border-gray-900 h-screen overflow-y-scroll sm:max-w-[12rem] lg:max-w-[15rem] hidden md:block scrollbar-hidden">
       <div className="space-y-4">
+        <div
+          style={{
+            transform: 'scale(0.7) translateX(-42px)',
+          }}
+        >
+          <SpotifyLogo />
+        </div>
         <IconButton icon={<HomeIcon className="icon" />} label="Home" />
         <IconButton
           icon={<MagnifyingGlassIcon className="icon" />}
