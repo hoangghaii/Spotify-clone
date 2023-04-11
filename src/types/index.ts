@@ -76,9 +76,10 @@ export type SongReducerAction =
       payload: number;
     };
 
-export type Category = {
-  href: string;
-  icons: SpotifyApi.ImageObject[];
-  id: string;
-  name: string;
-};
+export type Category = SpotifyApi.CategoryObject;
+
+export type Artist = SpotifyApi.ArtistObjectFull;
+
+export type Track = SpotifyApi.TrackObjectFull;
+
+export type PlayListForCategory = SpotifyApi.PlaylistObjectSimplified;

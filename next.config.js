@@ -27,6 +27,12 @@ const nextConfig = {
         port: '',
         pathname: '/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'charts-images.scdn.co',
+        port: '',
+        pathname: '/**',
+      },
     ],
   },
 };

@@ -1,2 +1,3 @@
 export * from './convertDuration';
-export * from './pickrandom';
+export * from './getSessionOfDay';
+export * from './pickRandom';

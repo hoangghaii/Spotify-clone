@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react';
 import DefaultDashboard from '@/components/DefaultDashboard';
 import Songs from '@/components/Songs';
 import { usePlayListContext } from '@/contexts';
-import { pickRandom } from '@/utils';
+import { getSessionOfDay, pickRandom } from '@/utils';
 
 const colours = [
   'from-indigo-500',
@@ -22,6 +22,8 @@ const Center = () => {
   const {
     playlistContextState: { selectedPlaylistId, selectedPlaylist },
   } = usePlayListContext();
+
+  const sessionOfDay = getSessionOfDay();
 
   const { data: session } = useSession();
 
@@ -49,11 +51,11 @@ const Center = () => {
         </div>
       </header>
 
-      <section
-        className={`flex items-end space-x-7 bg-gradient-to-b ${fromColor} to-black h-80 p-8`}
-      >
-        {selectedPlaylist ? (
-          <>
+      {selectedPlaylist ? (
+        <>
+          <section
+            className={`flex items-end space-x-7 bg-gradient-to-b ${fromColor} to-black h-44 p-8`}
+          >
             <Image
               src={selectedPlaylist.images[0].url}
               alt="Playlist Image"
@@ -67,15 +69,26 @@ const Center = () => {
                 {selectedPlaylist.name}
               </h1>
             </div>
-          </>
-        ) : (
-          <DefaultDashboard />
-        )}
-      </section>
+          </section>
 
-      <div>
-        <Songs />
-      </div>
+          <div>
+            <Songs />
+          </div>
+        </>
+      ) : session ? (
+        <>
+          <section
+            className={`space-x-7 bg-gradient-to-b ${fromColor} to-black h-44 p-8`}
+          >
+            <h1 className="uppercase text-2xl font-bold md:text-3xl xl:text-5xl">
+              GOOD {sessionOfDay}
+            </h1>
+          </section>
+          <DefaultDashboard />
+        </>
+      ) : (
+        <></>
+      )}
     </div>
   );
 };
