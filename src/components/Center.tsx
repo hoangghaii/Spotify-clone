@@ -8,6 +8,8 @@ import Songs from '@/components/Songs';
 import { usePlayListContext } from '@/contexts';
 import { getSessionOfDay, pickRandom } from '@/utils';
 
+import UserPlaceholder from '../../public/images/user.png';
+
 const colours = [
   'from-indigo-500',
   'from-blue-500',
@@ -41,7 +43,7 @@ const Center = () => {
           onClick={() => signOut()}
         >
           <Image
-            src={session?.user?.image || '/images/user.png'}
+            src={session?.user?.image || UserPlaceholder}
             alt="User avatar"
             height={40}
             width={40}
